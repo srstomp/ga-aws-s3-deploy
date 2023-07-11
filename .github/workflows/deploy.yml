@@ -1,0 +1,24 @@
+name: Deploy
+
+on:
+  workflow_call:
+    inputs:
+      cloudfront-distribution-id:
+        required: true
+        type: string
+      bucket-nam:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Test
+        run: echo Test
+
+      - name: Test Var
+        run: echo ${{ inputs.cloudfront-distribution-id }}
